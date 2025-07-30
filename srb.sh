@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+sdfasdflasjdf
 if systemctl is-active --quiet srbminer.service; then
   echo "[*] SRBMiner service is already running. Skipping setup."
   exit 0
