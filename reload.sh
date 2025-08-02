@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "[*] Starting Reloading Script"
 
 # Start service
 echo "[*] Reloading systemd and starting SRBMiner service"
