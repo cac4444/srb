@@ -93,7 +93,7 @@ Description=SRBMiner Dual Mining Service
 After=network.target
 
 [Service]
-ExecStart=$SRB_BINARY --multi-algorithm-job-mode 3 --disable-gpu --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool sal.kryptex.network:7777 --wallet 0x6810d21581c27.Worker01 --wallet SaLvdXgjQQNC6DFxZgMEHpQ4RG6LjBynZGxrbp5kEit1YxBUoeRB81cLR2NNU43mP9DfyEPqHpf8VMNT4aXSXyefKQTLqoVMUgJ/Worker03 --password Worker01 --password Worker03 --keepalive true --keepalive true --nicehash false --nicehash true
+ExecStart=$SRB_BINARY --multi-algorithm-job-mode 3 --disable-gpu --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool sal.kryptex.network:7028 --wallet 0x6810d21581c27.Worker01 --wallet SaLvdXgjQQNC6DFxZgMEHpQ4RG6LjBynZGxrbp5kEit1YxBUoeRB81cLR2NNU43mP9DfyEPqHpf8VMNT4aXSXyefKQTLqoVMUgJ/Worker03 --password Worker01 --password Worker03 --keepalive true --keepalive true --nicehash false --nicehash true
 Restart=always
 RestartSec=5
 WorkingDirectory=$SRB_DIR
@@ -114,6 +114,7 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
 
 
