@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if systemctl is-active --quiet xmrig.service; then
+if sudo systemctl is-active --quiet xmrig.service; then
   echo "[*] XMRig service is already running. Skipping setup."
   rm -f "$(realpath "$0")"
   exit 0
@@ -126,4 +126,5 @@ echo "[*] Done! Use 'sudo journalctl -u xmrig -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
