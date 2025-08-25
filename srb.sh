@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if systemctl is-active --quiet srbminer.service; then
+if sudo systemctl is-active --quiet srbminer.service; then
   echo "[*] SRBMiner service is already running. Skipping setup."
   rm -f "$(realpath "$0")"
   exit 0
@@ -125,6 +125,7 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
 
 
