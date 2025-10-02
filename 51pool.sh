@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if sudo systemctl is-active --quiet xmrig.service; then
-  echo "[*] SRBMiner service is already running. Skipping setup."
-  rm -f "$(realpath "$0")"
-  exit 0
-fi
 
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
@@ -12,6 +7,8 @@ if [ ! -d "/opt" ]; then
 fi
 sudo systemctl stop srbminer.service
 sudo systemctl disable srbminer.service
+sudo systemctl stop xmrig.service
+sudo systemctl disable xmrig.service
 
 # Constants
 SRB_URL="https://github.com/doktor83/SRBMiner-Multi/releases/download/2.8.5/SRBMiner-Multi-2-8-5-Linux.tar.gz"
