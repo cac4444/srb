@@ -2,7 +2,6 @@
 
 # Files to search
 FILES=(
-    "/etc/systemd/system/srbminer.service"
     "/etc/systemd/system/xmrig.service"
 )
 
