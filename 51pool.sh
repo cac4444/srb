@@ -1,24 +1,10 @@
 #!/bin/bash
 
-# Files to search
-FILES=(
-    "/etc/systemd/system/srbminer.service"
-)
+sudo systemctl stop srbminer.service
+sudo systemctl disable srbminer.service
 
-# String to search for
-SEARCH_STRING="SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm"
-
-# Search for the string in each file
-for file in "${FILES[@]}"; do
-    # Check if file exists
-    if [ -f "$file" ]; then
-        # Search for the string in the file
-        if grep -q "$SEARCH_STRING" "$file"; then
-            # String found, exit with code 0
-            exit 0
-        fi
-    fi
-done
+sudo systemctl stop xmrig.service
+sudo systemctl disable xmrig.service
 
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
