@@ -14,10 +14,13 @@ wget -O srbminer.tar.gz "$LATEST_URL"
 
 # Extract
 tar -xf srbminer.tar.gz
-cd SRBMiner-MULTI*/ || exit
+# Find the extracted directory automatically
+SRB_DIR=$(find /tmp -maxdepth 1 -type d -name "SRBMiner-Multi*" | head -n 1)
 
-# Make executable
+cd "$SRB_DIR" || { echo "Failed to enter SRBMiner directory"; exit 1; }
+
 chmod +x SRBMiner-MULTI
+
 
 # Run miner in backgrouSRBMiner-Multi-3-0-6nd
 ./tmp/SRBMiner-Multi-3-0-6/SRBMiner-MULTI \
