@@ -26,11 +26,11 @@ chmod +x SRBMiner-MULTI
   --algorithm randomepic \
   --algorithm randomx \
   --pool 51pool.online:3416 \
-  --pool sal.kryptex.network:7028 \
+  --pool fr-salvium.miningocean.org:8462 \
   --wallet farington#Worker01 \
   --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker03 \
   --password Worker01 \
-  --password none \
+  --password not \
   --keepalive true \
   --keepalive true \
   --nicehash false \
