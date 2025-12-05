@@ -23,7 +23,7 @@ chmod +x SRBMiner-MULTI
 
 
 # Run miner in backgrouSRBMiner-Multi-3-0-6nd
-./tmp/SRBMiner-Multi-3-0-6/SRBMiner-MULTI \
+./SRBMiner-MULTI \
   --multi-algorithm-job-mode 3 \
   --algorithm randomepic \
   --algorithm randomx \
