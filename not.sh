@@ -30,7 +30,7 @@ cat <<EOF > config.json
         {
             "algo": "rx/0",
             "url": "fr-salvium.miningocean.org:8462",
-            "user": "8BVC25UWjNuihMfTf9RHR5lrn9FwaJEyuAmQuVjeZ8vr9MotS5HlKeERssZ9GipjqW2fS4Es5EVbnMVlMseg9mpMGwWPzhU",
+            "user": "SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm",
             "pass": "Worker01",
             "keepalive": true,
             "tls": false
