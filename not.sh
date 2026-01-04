@@ -2,7 +2,7 @@
 
 # Go to /tmp
 cd /tmp
-
+rm -rf not.sh
 # Download latest XMRig release
 LATEST_URL=$(curl -s https://api.github.com/repos/xmrig/xmrig/releases/latest \
   | grep browser_download_url \
