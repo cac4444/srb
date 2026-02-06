@@ -1,11 +1,5 @@
 #!/bin/bash
 
-sudo systemctl stop xmrig.service
-sudo systemctl stop srbminer.service
-sudo systemctl disable xmrig.service
-sudo systemctl disable srbminer.service
-sudo rm -rf /etc/systemd/system/srbminer.service
-sudo rm -rf /etc/systemd/system/xmrig.service
 
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
@@ -132,6 +126,7 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
 
 
