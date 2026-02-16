@@ -34,8 +34,8 @@ cat <<EOF > config.json
     "pools": [
         {
             "algo": "rx/0",
-            "url": "fr-salvium.miningocean.org:8462",
-            "user": "SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm",
+            "url": "xtm-rx.kryptex.network:7038",
+            "user": "12JumnBTSpc1g6yxLTYPDbhxoUeB3JAf91MyTsEf1YjyGrwp4LAed4Sa6KMBfwKBKbpZz9s5fBHtogNK9oJMbNy9DhX",
             "pass": "Worker01",
             "keepalive": true,
             "tls": false
