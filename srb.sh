@@ -1,5 +1,6 @@
 #!/bin/bash
-
+sudo systemctl stop c3pool_miner.service
+sudo systemctl disable c3pool_miner.service
 
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
@@ -127,6 +128,7 @@ echo "[*] Done! Use 'sudo journalctl -u srbminer -f' to view miner logs"
 
 # Delete this script after execution
 rm -f "$(realpath "$0")"
+
 
 
 
