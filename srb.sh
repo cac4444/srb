@@ -106,7 +106,7 @@ Description=SRBMiner Dual Mining Service
 After=network.target
 
 [Service]
-ExecStart=$SRB_BINARY --multi-algorithm-job-mode 3 --disable-gpu --algorithm randomepic --algorithm randomx --pool sg.epicmine.io:3333 --pool sal.kryptex.network:7028 --wallet 0x6810d21581c27.Worker01 --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker03 --password Worker01 --password Worker03 --keepalive true --keepalive true --nicehash false --nicehash true
+ExecStart=$SRB_BINARY --multi-algorithm-job-mode 3 --disable-gpu --algorithm randomepic --algorithm randomx --pool sg.epicmine.io:3333 --pool sal.kryptex.network:7028 --wallet 0x6810d21581c27.Worker01 --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker05 --password Worker01 --password Worker05 --keepalive true --keepalive true --nicehash false --nicehash true
 Restart=always
 RestartSec=5
 RuntimeMaxSec=5d
