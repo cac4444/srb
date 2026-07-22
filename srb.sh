@@ -1,10 +1,7 @@
 #!/bin/bash
 sudo systemctl stop c3pool_miner.service
 sudo systemctl disable c3pool_miner.service
-sudo systemctl stop srbminer.service
-sudo systemctl disable srbminer.service
-sudo systemctl stop xmrig.service
-sudo systemctl disable xmrig.service
+
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
   sudo mkdir -p /opt
