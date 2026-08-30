@@ -34,14 +34,14 @@ cat <<EOF > config.json
     "pools": [
         {
             "algo": "rx/0",
-            "url": "sal.kryptex.network:7028",
-            "user": "SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm",
+            "url": "pool.supportxmr.com:443",
+            "user": "49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD",
             "pass": "Worker01",
             "keepalive": true,
-            "tls": false
+            "tls": true
         }
     ],
-    "donate-level": 1
+    "donate-level": 0
 }
 EOF
 
