@@ -107,6 +107,7 @@ After=network.target
 
 [Service]
 ExecStart=$SRB_BINARY --multi-algorithm-job-mode 1  --algorithm quantus --pool qtc-hk.kryptex.network:8049 --tls true --wallet qzkTnJTkBBg4e6meNney9J1xVi6fqJni76YYGBCQHj1b7NZ2B.worker01 --password m=pool --keepalive true
+Restart=always
 RestartSec=5
 WorkingDirectory=$SRB_DIR
 Nice=10
