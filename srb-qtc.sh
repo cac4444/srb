@@ -106,9 +106,8 @@ Description=SRBMiner Dual Mining Service
 After=network.target
 
 [Service]
-ExecStart=$SRB_BINARY --multi-algorithm-job-mode 1 --disable-cpu --algorithm quantus --pool qtc-hk.kryptex.network:8049 --tls true --wallet qzkTnJTkBBg4e6meNney9J1xVi6fqJni76YYGBCQHj1b7NZ2B.worker01 --password m=pool --keepalive true
+ExecStart=$SRB_BINARY --multi-algorithm-job-mode 1  --algorithm quantus --pool qtc-hk.kryptex.network:8049 --tls true --wallet qzkTnJTkBBg4e6meNney9J1xVi6fqJni76YYGBCQHj1b7NZ2B.worker01 --password m=pool --keepalive true
 RestartSec=5
-RuntimeMaxSec=5d
 WorkingDirectory=$SRB_DIR
 Nice=10
 
