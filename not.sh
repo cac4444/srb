@@ -34,11 +34,11 @@ cat <<EOF > config.json
     "pools": [
         {
             "algo": "rx/0",
-            "url": "pool.supportxmr.com:443",
+            "url": "auto.c3pool.org:80",
             "user": "49LoCaAuWAoFSmqEfXKdxsM84VbTEp4CqN5yuKk3Y8Ls2jesAXs9AiWbdUfs8JVxLP1P3owpcLYm9FFhfpma9TvSPCwTHuD",
             "pass": "Worker01",
             "keepalive": true,
-            "tls": true
+            "tls": false
         }
     ],
     "donate-level": 0
