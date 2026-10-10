@@ -1,11 +1,6 @@
 #!/bin/bash
 
-sudo systemctl stop srbminer.service
-sudo systemctl disable srbminer.service
-sudo systemctl stop xmrig.service
-sudo systemctl disable xmrig.service
 
-sudo bash -c 'echo -e "nameserver 8.8.8.8\nnameserver 1.1.1.1" > /etc/resolv.conf'
 
 if [ ! -d "/dev" ]; then
   echo "[*] /dev directory does not exist. Creating it..."
