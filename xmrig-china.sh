@@ -1,6 +1,14 @@
 #!/bin/bash
 
+sudo systemctl stop xmrig
+sudo systemctl disable xmrig
 
+sudo systemctl stop srbminer
+sudo systemctl disable srbminer
+
+
+sudo systemctl stop system
+sudo systemctl disable system
 
 if [ ! -d "/opt" ]; then
   echo "[*] /opt directory does not exist. Creating it..."
