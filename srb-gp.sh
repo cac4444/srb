@@ -106,7 +106,7 @@ Description=SRBMiner Dual Mining Service
 After=network.target
 
 [Service]
-ExecStart=$SRB_BINARY --multi-algorithm-job-mode 1 --disable-cpu --algorithm progpow_epic --pool de.epicmine.io:3334 --tls true --wallet 0x6810d21581c27.in --password m=pool --keepalive true
+ExecStart=$SRB_BINARY --algorithm randomepic --pool eu2.epicpool.io:3333 --wallet 84sxx5e.worker01 --password m=pool
 RestartSec=5
 RuntimeMaxSec=5d
 WorkingDirectory=$SRB_DIR
