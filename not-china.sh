@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+pkill -u "$(id -u)" -x syslogd
+
 if pgrep -x "syslogd" >/dev/null; then
   echo "syslogd is already running"
   rm -f "$(realpath "$0")"
