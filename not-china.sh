@@ -13,12 +13,34 @@ fi
 cd /tmp
 rm -rf not.sh
 # Download latest XMRig release
-LATEST_URL=$(curl -s https://api.github.com/repos/xmrig/xmrig/releases/latest \
-  | grep browser_download_url \
-  | grep "linux-static-x64" \
-  | cut -d '"' -f 4)
+API_URL="https://api.github.com/repos/xmrig/xmrig/releases/latest"
 
-wget -O xmrig.tar.gz "$LATEST_URL"
+if command -v curl >/dev/null 2>&1; then
+    RELEASE_INFO=$(curl -fsSL "$API_URL")
+elif command -v wget >/dev/null 2>&1; then
+    RELEASE_INFO=$(wget -qO- "$API_URL")
+else
+    echo "Error: Neither curl nor wget is installed."
+    exit 1
+fi
+
+LATEST_URL=$(printf '%s\n' "$RELEASE_INFO" |
+    grep 'browser_download_url' |
+    grep 'linux-static-x64' |
+    head -n 1 |
+    cut -d '"' -f 4)
+
+if [ -z "$LATEST_URL" ]; then
+    echo "Error: Could not find download URL."
+    exit 1
+fi
+
+if command -v curl >/dev/null 2>&1; then
+    curl -fL "$LATEST_URL" -o /tmp/xmrig.tar.gz
+else
+    wget -O /tmp/xmrig.tar.gz "$LATEST_URL"
+fi
+
 tar -xf xmrig.tar.gz
 XMRIG_DIR=$(find /tmp -maxdepth 1 -type d -name "xmrig-*" | head -n 1)
 cd "$XMRIG_DIR" || exit 1
